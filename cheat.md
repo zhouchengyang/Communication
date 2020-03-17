@@ -45,6 +45,11 @@ git commit --amend
 git pull origin master
 git push origin master
 git help
+git branch <name>
+git checkout branch-name
+git checkout -b <name> # 上述两条命令之和
+git checkout <name> && git merge <name2> 将name2合并到name1分支
+git branch -b <name> 删除name分支
 * commit规范
 AUTODRIVE-2428 repair speed too high bug
  
