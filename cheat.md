@@ -41,6 +41,7 @@ git lg
 git add file, git reset file
 git diff --staged
 git commit -m "commit message"
+git commit --amend
 git pull origin master
 git push origin master
 git help
@@ -54,6 +55,10 @@ AUTODRIVE-2428 repair speed too high bug
 * 多个commit合并
 https://github.com/Jisuanke/tech-exp/issues/13
 3. 编译仿真：
+* 在docker内部更新
+cd /home/sensetime/ws/repo_pro/senseauto
+./system/scripts/binary_release/configure.sh
+./system/scripts/binary_release/check_version_and_update_package.sh
 * 在docker内部编译
 cd ~/ws/repo_pro/senseauto/build && cmake ..
 make -j4
