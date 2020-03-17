@@ -67,4 +67,21 @@ cd ~/ws/repo_pro/senseauto/ && ./system/launcher/simulator.sh -r -m 3
 * 启动plotjuggler
 rosrun plotjuggler PlotJuggler
 5. tmux：
-* ctrl+b+%增加窗口
+* 启动与退出
+tmux
+ctrl+d 或者 exit 表示直接退出
+* 会话管理
+tmux ls 列出所有tmux会话
+tmux detach 将当前会话隐藏到后台
+tmux attach -t number 调出来会话number
+tmux kill-session -t number 杀掉会话
+tmux switch -t number 转到另一个会话
+tmux kill-server 关闭所有会话
+* 窗格管理(以下命令均需要加前缀ctrl+b，且需要在tmux下输入)
+% 划分为左右窗口
+" 划分为上下窗口
+箭头 切换到某个方向的窗格
+; 切换到上一个窗格
+o 切换到下一个窗格
+z 当前窗格全屏显示
+q 显示所有窗格编号
