@@ -34,7 +34,7 @@ ctrl+d
 * 和远程同步
 cd ~/docker_ws/repo_pro/senseauto
 ./system/scripts/repo/sync.sh
-* git操作
+* git操作[https://confluence.sensetime.com/pages/viewpage.action?pageId=37291981]
 git status
 git log --graph --oneline --branches --all --decorate
 git lg
@@ -73,7 +73,13 @@ make -j4
 cd ~/ws/repo_pro/senseauto/ && ./system/launcher/simulator.sh -r -m 3
 * 启动plotjuggler
 rosrun plotjuggler PlotJuggler
-5. tmux：
+* config文件:
+/system/config/pp_config.ini
+* 输出日志文件:
+vim /tmp/ros_decision_planning_node.txt 
+* 画出dpqp过程
+python3 ~/ws/repo_pro/senseauto/modules/path_planning/scripts/plot_dqq_process.py -d /tmp/today-logs/ -t2020-03-18-14-44-14
+4. tmux：
 * 启动与退出
 tmux
 ctrl+d 或者 exit 表示直接退出
