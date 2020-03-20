@@ -34,6 +34,8 @@ ctrl+d
 * 和远程同步
 cd ~/docker_ws/repo_pro/senseauto
 ./system/scripts/repo/sync.sh
+repo forall -c 'git fetch'
+repo forall -c 'git rebase origin/master'
 * git操作[https://confluence.sensetime.com/pages/viewpage.action?pageId=37291981]
 git status
 git log --graph --oneline --branches --all --decorate

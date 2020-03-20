@@ -26,3 +26,7 @@
 ## 2020.03.18
 1. 学习git的操作
 2. 阅读并运行代码
+   1. baseplanner, planner, dp_searcher,st_graph_searcher, longi_lat_planner
+## 2020.03.19
+1. 阅读代码
+   1. predict_map, object_screen, longi_lat_planner剩余的函数
