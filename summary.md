@@ -30,3 +30,7 @@
 ## 2020.03.19
 1. 阅读代码
    1. predict_map, object_screen, longi_lat_planner剩余的函数
+## 2020.03.20
+1. 阅读代码
+   1. parser， obstacle_map
+2. 学习Linux技巧

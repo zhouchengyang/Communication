@@ -69,8 +69,7 @@ cd /home/sensetime/ws/repo_pro/senseauto
 ./system/scripts/binary_release/configure.sh
 ./system/scripts/binary_release/check_version_and_update_package.sh
 * 在docker内部编译
-cd ~/ws/repo_pro/senseauto/build && cmake ..
-make -j4
+cd ~/ws/repo_pro/senseauto/build && cmake .. && make -j4
 * 开启仿真
 cd ~/ws/repo_pro/senseauto/ && ./system/launcher/simulator.sh -r -m 3
 * 启动plotjuggler
@@ -100,3 +99,30 @@ tmux kill-server 关闭所有会话
 o 切换到下一个窗格
 z 当前窗格全屏显示
 q 显示所有窗格编号
+5. linux
+* 文件
+bin 存放二进制可执行文件(ls,cat,mkdir等)
+boot 存放用于系统引导时使用的各种文件
+dev 用于存放设备文件
+etc 存放系统配置文件
+home 存放所有用户文件的根目录
+lib 存放跟文件系统中的程序运行所需要的共享库及内核模块
+mnt 系统管理员安装临时文件系统的安装点
+opt 额外安装的可选应用程序包所放置的位置
+proc 虚拟文件系统，存放当前内存的映射
+root 超级用户目录
+sbin 存放二进制可执行文件，只有root才能访问
+tmp 用于存放各种临时文件
+usr 用于存放系统应用程序，比较重要的目录/usr/local 本地管理员软件安装目录
+var 用于存放运行时需要改变数据的文件
+* 可执行文件的分类
+内置命令：出于效率的考虑，将一些常用命令的解释程序构造在Shell内部。
+外置命令：存放在/bin、/sbin目录下的命令
+实用程序：存放在/usr/bin、/usr/sbin、/usr/share、/usr/local/bin等目录下的实用程序
+用户程序：用户程序经过编译生成可执行文件后，可作为Shell命令运行
+Shell脚本：由Shell语言编写的批处理文件，可作为Shell命令运行
+* 通配符
+*：匹配任何字符和任何数目的字符
+?：匹配单一数目的任何字符
+[ ]：匹配[ ]之内的任意一个字符
+[! ]：匹配除了[! ]之外的任意一个字符，!表示非的意思
