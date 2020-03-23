@@ -34,3 +34,11 @@
 1. 阅读代码
    1. parser， obstacle_map
 2. 学习Linux技巧
+## 2020.03.23
+1. 阅读代码
+* Init: Base_planner::Create_planner, Longi_lat_planner::Init, Parser::Init, Object_map::Init, Predict_map::Init
+* Update: Base_planner::Update, Base_planner::BuildFrenetCoordSystem
+* Update: Longi_lat_planner::Plan, Parser::Update, Object_map::Update, Predict_map::Update
+* Update: Predict_map::Refresh, Object_map::FindNBO, Object_map::ConstructSIntervals
+* Update: Longi_lat_planner::UpdateCachedPath
+2. 开会(下午周例会， 晚上会议)
