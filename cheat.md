@@ -63,6 +63,9 @@ AUTODRIVE-2428 repair speed too high bug
 
 * 多个commit合并
 https://github.com/Jisuanke/tech-exp/issues/13
+* 下载topic
+repo download-topic AUTODRIVE-0000_Create_Branch_MyBranch
+repo sync -d -j4 
 3. 编译仿真：
 * 在docker内部更新
 cd /home/sensetime/ws/repo_pro/senseauto
@@ -72,6 +75,7 @@ cd /home/sensetime/ws/repo_pro/senseauto
 cd ~/ws/repo_pro/senseauto/build && cmake .. && make -j4
 * 开启仿真
 cd ~/ws/repo_pro/senseauto/ && ./system/launcher/simulator.sh -r -m 3
+打开localhost:8082
 * 启动plotjuggler
 rosrun plotjuggler PlotJuggler
 * config文件:
@@ -80,6 +84,9 @@ rosrun plotjuggler PlotJuggler
 vim /tmp/ros_decision_planning_node.txt 
 * 画出dpqp过程
 python3 ~/ws/repo_pro/senseauto/modules/path_planning/scripts/plot_dqq_process.py -d /tmp/today-logs/ -t2020-03-18-14-44-14
+* 场景编辑器
+cd ~/ws/repo_pro/senseauto/modules/simulator/tools/scenario_editor/ && ./auto_start.sh
+打开locahost:8085
 4. tmux：
 * 启动与退出
 tmux

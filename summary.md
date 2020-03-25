@@ -42,3 +42,6 @@
 * Update: Predict_map::Refresh, Object_map::FindNBO, Object_map::ConstructSIntervals
 * Update: Longi_lat_planner::UpdateCachedPath
 2. 开会(下午周例会， 晚上会议)
+## 2020.03.25
+1. 仿真(HMI和Ros PlotJuggler)
+2. 仿真bag和场景编辑
