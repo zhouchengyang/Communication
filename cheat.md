@@ -23,6 +23,7 @@ docker run -it  --privileged --runtime=nvidia --name senseauto \
     -v /usr/include/canstat.h:/usr/include/canstat.h \
     -v /usr/include/obsolete.h:/usr/include/obsolete.h \
     senseauto-dev:my-image /bin/bash
+
 ## 常用命令
 1. docker相关：
 * 启动docker
@@ -30,12 +31,10 @@ docker start senseauto
 docker attach senseauto
 * 退出docker
 ctrl+d
+
 2. 同步相关：
 * 和远程同步
-cd ~/docker_ws/repo_pro/senseauto
-./system/scripts/repo/sync.sh
-repo forall -c 'git fetch'
-repo forall -c 'git rebase origin/master'
+cd ~/docker_ws/repo_pro/senseauto && ./system/scripts/repo/sync.sh
 * git操作[https://confluence.sensetime.com/pages/viewpage.action?pageId=37291981]
 git status
 git log --graph --oneline --branches --all --decorate
@@ -55,17 +54,19 @@ git branch -b <name> 删除name分支
 git fetch origin
 git push origin <name>
 * commit规范
+```
 AUTODRIVE-2428 repair speed too high bug
  
 * Speed is too high, which is dangers.
 * Took Throttle as Brake.
 * Correctly handle throttle and brake.
-
+```
 * 多个commit合并
 https://github.com/Jisuanke/tech-exp/issues/13
 * 下载topic
 repo download-topic AUTODRIVE-0000_Create_Branch_MyBranch
 repo sync -d -j4 
+
 3. 编译仿真：
 * 在docker内部更新
 cd /home/sensetime/ws/repo_pro/senseauto
@@ -76,6 +77,8 @@ cd ~/ws/repo_pro/senseauto/build && cmake .. && make -j4
 * 开启仿真
 cd ~/ws/repo_pro/senseauto/ && ./system/launcher/simulator.sh -r -m 3
 打开localhost:8082
+运行自定义场景数据 ./system/launcher/simulator.sh  -s /path/to/scenario.zip
+运行bag数据 ./system/launcher/simulator.sh -m 4 -k /path/to/xxx.bag
 * 启动plotjuggler
 rosrun plotjuggler PlotJuggler
 * config文件:
@@ -87,6 +90,13 @@ python3 ~/ws/repo_pro/senseauto/modules/path_planning/scripts/plot_dqq_process.p
 * 场景编辑器
 cd ~/ws/repo_pro/senseauto/modules/simulator/tools/scenario_editor/ && ./auto_start.sh
 打开locahost:8085
+* 临时增加cut in or lead
+打开新的tmux窗口
+cd ~/ws/senseauto/modules/simulator/scripts/manual_control
+./control.py cutin
+./control.py lead
+修改参数：cutin.yaml
+
 4. tmux：
 * 启动与退出
 tmux
@@ -106,6 +116,7 @@ tmux kill-server 关闭所有会话
 o 切换到下一个窗格
 z 当前窗格全屏显示
 q 显示所有窗格编号
+
 5. linux
 * 文件
 bin 存放二进制可执行文件(ls,cat,mkdir等)
@@ -140,3 +151,8 @@ Shell脚本：由Shell语言编写的批处理文件，可作为Shell命令运�
 .. 表示当前目录的上一级目录（父目录）
 - 表示用 cd 命令切换目录前所在的目录
 ~ 表示用户主目录的绝对路径名
+
+6. aws操作
+* aws 配置：aws configure 输入邮件中的key和id
+* aws 列出：aws s3 ls s3://Field_Test_Data/master/
+* aws 下载目录：aws s3 cp s3://Field_Test_Data/</path/to/DirName> ~/data/ --recursive
