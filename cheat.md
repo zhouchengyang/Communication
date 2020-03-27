@@ -77,8 +77,9 @@ cd ~/ws/repo_pro/senseauto/build && cmake .. && make -j4
 * 开启仿真
 cd ~/ws/repo_pro/senseauto/ && ./system/launcher/simulator.sh -r -m 3
 打开localhost:8082
-运行自定义场景数据 ./system/launcher/simulator.sh  -s /path/to/scenario.zip
-运行bag数据 ./system/launcher/simulator.sh -m 4 -k /path/to/xxx.bag
+运行自定义场景数据 ./system/launcher/simulator.sh  -s ~/data/Download/scenario.zip
+运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simulator_scenario/0
+运行bag数据 ./system/launcher/simulator.sh -m 4 -k ~/data/Download/xxx.bag
 * 启动plotjuggler
 rosrun plotjuggler PlotJuggler
 * config文件:
@@ -86,7 +87,7 @@ rosrun plotjuggler PlotJuggler
 * 输出日志文件:
 vim /tmp/ros_decision_planning_node.txt 
 * 画出dpqp过程
-python3 ~/ws/repo_pro/senseauto/modules/path_planning/scripts/plot_dqq_process.py -d /tmp/today-logs/ -t2020-03-18-14-44-14
+python3 ~/ws/senseauto/modules/path_planning/scripts/plot_dqq_process.py -d /tmp/today-logs/ -t 2020-03-18-14-44-14
 * 场景编辑器
 cd ~/ws/repo_pro/senseauto/modules/simulator/tools/scenario_editor/ && ./auto_start.sh
 打开locahost:8085
