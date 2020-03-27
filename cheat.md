@@ -35,6 +35,7 @@ ctrl+d
 2. 同步相关：
 * 和远程同步
 cd ~/docker_ws/repo_pro/senseauto && ./system/scripts/repo/sync.sh
+
 * git操作[https://confluence.sensetime.com/pages/viewpage.action?pageId=37291981]
 git status
 git log --graph --oneline --branches --all --decorate
