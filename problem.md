@@ -1,9 +1,10 @@
 1. longi_lat_planner.hpp
 * double longi_upper_limit_ = speed_limit_ * s_horizon_;是不是应该是*t_horizon_？
+* ApplyFallBack功能？
 
 
 2. parser.cpp
-* else if (scenario_ == PlanningScenario::LANE_CHANGE): 现在不需要处理变道场景嘛？在object_map里面的constructSIntervals
+* else if (scenario_ == PlanningScenario::LANE_CHANGE): 现在不需要处理变道场景嘛？在object_map里面的constructSIntervals处理的变道吗？
 
 3. predict_map.cpp
 * cells_3d_.SetCell(
