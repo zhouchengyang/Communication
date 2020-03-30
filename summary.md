@@ -42,10 +42,15 @@
 * Update: Predict_map::Refresh, Object_map::FindNBO, Object_map::ConstructSIntervals
 * Update: Longi_lat_planner::UpdateCachedPath
 2. 开会(下午周例会， 晚上会议)
+## 2020.03.24
+1. 阅读代码
+* Update：Longi_lat_palnner::UpdateInitState, DPSearcher::Update, DPSearcher::Search
+* Update: Longi_lat_planner::LongitudinalOptimize, Longi_lat_planner::LateralOptimize
+* Update: Longi_lat_planner::EmergencyBrake, Longi_lat_planner::ApplyFallBack
+2. 查看config参数及confluence
 ## 2020.03.25
 1. 仿真(HMI和Ros PlotJuggler)
 2. 仿真bag和场景编辑，OKR小组讨论
-
 ## 2020.03.26
 1. 仿真HMI以及场景编辑器
 2. aws路测数据下载
