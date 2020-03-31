@@ -80,6 +80,7 @@ cd ~/ws/repo_pro/senseauto/ && ./system/launcher/simulator.sh -r -m 3
 打开localhost:8082
 运行自定义场景数据 ./system/launcher/simulator.sh  -s ~/data/Download/scenario.zip
 运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simulator_scenario/0
+运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simlator_scenario/simulator_scenario_log.bin -t 2020-03-xx-xx-xx-xx
 运行bag数据 ./system/launcher/simulator.sh -m 4 -k ~/data/Download/xxx.bag
 * 启动plotjuggler
 rosrun plotjuggler PlotJuggler
