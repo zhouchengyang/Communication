@@ -164,5 +164,6 @@ https://ywnz.com/linuxrj/2762.html
 
 6. aws操作
 * aws 配置：aws configure 输入邮件中的key和id
-* aws 列出：aws s3 ls s3://Field_Test_Data/master/
+* aws 列出：aws s3 ls s3://Field_Test_Data/master/segment_data/2020_xx_xx/CN017/DPC/take_over/
+* aws 列出：aws s3 ls s3://Field_Test_Data/master/raw_data/
 * aws 下载目录：aws s3 cp s3://Field_Test_Data/</path/to/DirName> ~/data/ --recursive
