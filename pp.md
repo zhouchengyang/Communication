@@ -46,5 +46,8 @@
   * Update() 更新坐标系、障碍物、routing、当前位置等信息
   * IsIgnore() 传入障碍物，根据若干条件进行障碍物筛选，从而得到本障碍物忽略类型(不忽略，本帧忽略，之后帧均忽略)
 # Optimal motion planner思路整理(2020.04.01)
-* 
-
+* OptiMotionPlanner:public BasePlanner
+  * Init() 与LongiLatPlanner::Init()基本相同，不同点在于初始化optimal_lat_planner和optimal_longi_planner两个不同的横纵向优化器
+  * Plan() 与LongiLatPlanner::Plan()基本相同
+    * LongitudinalOptimize() 
+    * LateralOptimize() 
