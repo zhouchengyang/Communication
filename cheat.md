@@ -70,13 +70,13 @@ repo sync -d -j4
 
 3. 编译仿真：
 * 在docker内部更新
-cd /home/sensetime/ws/repo_pro/senseauto
+cd ~/ws/senseauto
 ./system/scripts/binary_release/configure.sh
 ./system/scripts/binary_release/check_version_and_update_package.sh
 * 在docker内部编译
-cd ~/ws/repo_pro/senseauto/build && cmake .. && make -j4
+cd ~/ws/senseauto/build && cmake .. && make -j4
 * 开启仿真
-cd ~/ws/repo_pro/senseauto/ && ./system/launcher/simulator.sh -r -m 3
+cd ~/ws/senseauto/ && ./system/launcher/simulator.sh -r -m 3
 打开localhost:8082
 运行自定义场景数据 ./system/launcher/simulator.sh  -s ~/data/Download/scenario.zip
 运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simulator_scenario/0
@@ -154,6 +154,8 @@ Shell脚本：由Shell语言编写的批处理文件，可作为Shell命令运�
 .. 表示当前目录的上一级目录（父目录）
 - 表示用 cd 命令切换目录前所在的目录
 ~ 表示用户主目录的绝对路径名
+脱域：i have no name找it
+
 * Kazam
 https://ywnz.com/linuxrj/2762.html
 * super+ctrl+q 退出
