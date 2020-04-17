@@ -44,6 +44,7 @@ git add file, git reset file
 git diff --staged
 git commit -m "commit message"
 git commit --amend
+git commit -a –amend --no-edit 直接提交没有新的commit
 git pull origin master
 git push origin master
 git help
@@ -82,6 +83,7 @@ cd ~/ws/senseauto/ && ./system/launcher/simulator.sh -r -m 3
 运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simulator_scenario/0
 运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simlator_scenario/simulator_scenario_log.bin -t 2020-03-xx-xx-xx-xx
 运行bag数据 ./system/launcher/simulator.sh -m 4 -k ~/data/Download/xxx.bag
+运行bag数据 ./system/launcher/offline_play_dmppcl.sh ~/data/data/case/
 * 启动plotjuggler
 rosrun plotjuggler PlotJuggler
 * config文件:
@@ -94,6 +96,7 @@ python3 ~/ws/senseauto/modules/path_planning/scripts/plot_dqq_process.py -d /tmp
 cd ~/ws/repo_pro/senseauto/modules/simulator/tools/scenario_editor/ && ./auto_start.sh
 打开locahost:8085
 * 临时增加cut in or lead
+
 打开新的tmux窗口
 cd ~/ws/senseauto/modules/simulator/scripts/manual_control
 ./control.py cutin
