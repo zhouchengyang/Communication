@@ -52,6 +52,29 @@
     * LongitudinalOptimize() 
     * LateralOptimize() 
 
+# SQP思路整理(2020.05.06)
+* planner_factory.hpp,PlannerFactory
+  * CreatePlanner(): 根据配置文件返回生成的Planner(目前是LongiLatPlanner),并且对Planner进行Init
+* base_planner.hpp,BasePlanner
+  * Init(): 纯虚函数，仅调用一次
+  * Update(): 每次由外界调用更新(roadStructure, predictionObject, dmTarget, vehicle_state)
+  * Plan(): 纯虚函数，由子类完成规划
+  * SetHondaConverter(): 输出结果
+  * GetPlanningLog(): 传出PlanningLog(用于plotjuggler)
+* longi_lat_planner.hpp,LongiLatPlanner
+  * Init():初始化scene_interface_,searcher_,optimizer_(QP Optimizer or SQP Optimizer)
+  * Plan():每帧进行调用，更新scene_interface, 调用Search，调用Optimize得到path
+  * Search():调用searcher_.search()得到tag，以及搜索的结果
+  * 
+* parser.hpp,Parser
+  * Init() 配置参数及初始化object_map
+  * Update() 由Planner每帧进行调用，更新routing、障碍物、坐标系等状态，对object_map_对应的状态进行更新
+    * object_map.Update() 更新状态
+    * object_map.Refresh() 实际调用predict_map的Refresh()
+    * object_map.FindNBO() 更新NBO状态
+    * object_map.ConstructSIntervals() 忽略NBO构建ST图
+    * object_map_.CutInLimitSpeed(&speed_ref_) 是否是cut in限速
+    
 ## Cutin
 ### 背景
 cut in主要是为了解决在他车缓慢cut in时预测轨迹不及时进入当前车道所产生的问题，因此最主要的目标是提前识别出他车缓慢cut in的意图并且能够做出避让处理。判断他车cut in意图的条件要较为严格，不然会导致一些误刹车，因此要在各个维度来限制判断的条件：

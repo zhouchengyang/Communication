@@ -96,7 +96,8 @@ python3 ~/ws/senseauto/modules/path_planning/scripts/plot_dqq_process.py -d /tmp
 cd ~/ws/repo_pro/senseauto/modules/simulator/tools/scenario_editor/ && ./auto_start.sh
 打开locahost:8085
 * 临时增加cut in or lead
-
+* hub挂掉可以尝试
+repo forall -c "git lfs pull"
 打开新的tmux窗口
 cd ~/ws/senseauto/modules/simulator/scripts/manual_control
 ./control.py cutin
@@ -172,3 +173,5 @@ https://ywnz.com/linuxrj/2762.html
 * aws 列出：aws s3 ls s3://Field_Test_Data/master/segment_data/2020_xx_xx/CN017/DPC/take_over/
 * aws 列出：aws s3 ls s3://Field_Test_Data/master/raw_data/
 * aws 下载目录：aws s3 cp s3://Field_Test_Data/</path/to/DirName> ~/data/ --recursive
+
+7. meld版本查看
