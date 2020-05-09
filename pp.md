@@ -65,7 +65,7 @@
   * Init():初始化scene_interface_,searcher_,optimizer_(QP Optimizer or SQP Optimizer)
   * Plan():每帧进行调用，更新scene_interface, 调用Search，调用Optimize得到path
   * Search():调用searcher_.search()得到tag，以及搜索的结果
-  * 
+  * Optimize():更新optimizer.update, 进行优化optimizer.optimize
 * parser.hpp,Parser
   * Init() 配置参数及初始化object_map
   * Update() 由Planner每帧进行调用，更新routing、障碍物、坐标系等状态，对object_map_对应的状态进行更新
@@ -74,31 +74,25 @@
     * object_map.FindNBO() 更新NBO状态
     * object_map.ConstructSIntervals() 忽略NBO构建ST图
     * object_map_.CutInLimitSpeed(&speed_ref_) 是否是cut in限速
-    
-## Cutin
-### 背景
-cut in主要是为了解决在他车缓慢cut in时预测轨迹不及时进入当前车道所产生的问题，因此最主要的目标是提前识别出他车缓慢cut in的意图并且能够做出避让处理。判断他车cut in意图的条件要较为严格，不然会导致一些误刹车，因此要在各个维度来限制判断的条件：
-### 识别条件
-1. 纵向位置(下面条件均符合)
-* 他车车头在自车质心前方，在自车质心后方的车辆正常情况下无法cut in
-* 他车车尾不超过自车车头一定位置(10m)，超过一定位置切入进来的情况由规划来解决
-2. 横向位置(下面条件均符合)
-* 两车横向距离应小于一定值，只有在较为横向较为靠近的车会有缓慢cut in的问题，删除不需要分析的车辆
-* 两车横向不应该重叠，在重叠时交由规划处理
-3. 横向速度(符合下面的条件之一)
-* 当他车横向接近速度较大时，说明他车有cut in的意图
-* ttc小于一定值，说明较为可能发生危险(ttc = d / (v_ego - v_obs))
-### 退出条件
-为了防止障碍物cut in状态频繁跳转，设定连续n帧丢失cut in状态的障碍物退出cut in模式
-### 识别后的解决思路
-在识别到他车有cut in意图时，自车可以采取横向和纵向两个方向来避让。
-1. 横向避让
-横向避让在自车或者他车速度较高时风险系数比较大，且在实现上复杂，暂不考虑。
-2. 纵向避让
-纵向避让主要是设置自车速度的上限值来保证对他车的避让。相对于他车轨迹突然进入当前车道导致的急刹车，这种方案能够提前识别他车意图，从而有更长的反应时间，同时能够减少规划的压力，使速度规划更加平稳、舒适。
-### 代码实现
+  * GetObstacleCost() 在ST图中得到某个点的障碍物cost，由DP Searcher调用
+  * SetObstacleTag() 根据在ST图规划的结果，将每个障碍物来做出超越或者跟车的决定
+* sqp_optimizer.hpp,SQPOptimizer
+  * Init() 初始化参数，初始化横纵向优化器，初始化fallback
+  * Optimize() 进行优化得到路径
+    * UpdateCachedPath() 更新上一帧轨迹，进行备用
+    * LongitudinalOptimize() 横向规划得到结果
+  * LongitudinalOptimize()
+    * scene_interface_.GetLongiBoundAndRef()：得到s上下边界(根据dp的tag)以及参考线，在sqp中只用到了supper和slower
+    * ResetlongiBound()：根据初始速度和动力学来更新vupper，aupper，alower
+    * SetSpeedScene()：判断场景
+    * RunSpeedMpcPlanner()：调用优化器求解
+* optimal_speed_planner.hpp,OptimalSpeedPlanner
+  * InitalOptimalPLanner() 初始化优化器及参数
+  * RunSpeedMpcPlanner()：对现在的定义进行求解
 
-### 仿真案例
+# 任务完成
+## 障碍物筛选 https://confluence.sensetime.com/pages/viewpage.action?pageId=142311902
+## Cutin https://confluence.sensetime.com/pages/viewpage.action?pageId=150332478
+## NBO绕行速度设计 https://confluence.sensetime.com/pages/viewpage.action?pageId=142318242
+## PP工具设计 https://confluence.sensetime.com/pages/viewpage.action?pageId=150339139
 
-## PP工具思路整理
-* check其他模块的质量，进行定责模块分析
