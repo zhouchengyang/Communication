@@ -82,9 +82,11 @@
     * UpdateCachedPath() 更新上一帧轨迹，进行备用
     * LongitudinalOptimize() 横向规划得到结果
   * LongitudinalOptimize()
-    * scene_interface_.GetLongiBoundAndRef()：得到s上下边界(根据dp的tag)以及参考线，在sqp中只用到了supper和slower
-    * ResetlongiBound()：根据初始速度和动力学来更新vupper，aupper，alower
-    * SetSpeedScene()：判断场景
+    * scene_interface_.GetLongiBoundAndRef()：得到s上下边界(根据dp的tag)以及参考线，在sqp中只用到了leader objects和s_lower(已经保证了后面s比前面大)，通过leader objects和stop line来决定s_upper(未保证后面s比前面大)，未用到s ref
+    * ResetlongiBound()：根据初始速度和acc来更新vupper，aupper，alower
+    * ResetSlower()：根据原始s_lower和现有s_upper来重新确定s_lower
+    * SetSpeedScene()：判断场景,重新设置supper(?)
+    * RestVr()：根据leader object来设置vr
     * RunSpeedMpcPlanner()：调用优化器求解
 * optimal_speed_planner.hpp,OptimalSpeedPlanner
   * InitalOptimalPLanner() 初始化优化器及参数
@@ -95,4 +97,14 @@
 ## Cutin https://confluence.sensetime.com/pages/viewpage.action?pageId=150332478
 ## NBO绕行速度设计 https://confluence.sensetime.com/pages/viewpage.action?pageId=142318242
 ## PP工具设计 https://confluence.sensetime.com/pages/viewpage.action?pageId=150339139
+## 转向灯状态修复 for dm2.5
+## 红绿灯刹车较重 https://jira.sensetime.com/browse/AUTODRIVE-4729
 
+
+## 被较远的前车影响较大
+
+
+1. supper设置需要符合后面大于前面
+2. speed_emergency_flag(?)
+3. reset_s_upper意义是什么
+4. v r匀加速度？还是均jerk比较好呢？
