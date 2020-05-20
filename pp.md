@@ -76,7 +76,7 @@
     * object_map_.CutInLimitSpeed(&speed_ref_) 是否是cut in限速
   * GetObstacleCost() 在ST图中得到某个点的障碍物cost，由DP Searcher调用
   * SetObstacleTag() 根据在ST图规划的结果，将每个障碍物来做出超越或者跟车的决定
-* sqp_optimizer.hpp,SQPOptimizer
+* sqp_optimizer.hpp,SQPOptimize
   * Init() 初始化参数，初始化横纵向优化器，初始化fallback
   * Optimize() 进行优化得到路径
     * UpdateCachedPath() 更新上一帧轨迹，进行备用
@@ -106,5 +106,5 @@
 
 1. supper设置需要符合后面大于前面
 2. speed_emergency_flag(?)
-3. reset_s_upper意义是什么
+3. reset_s_upper意义是什么 (软约束)
 4. v r匀加速度？还是均jerk比较好呢？
