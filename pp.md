@@ -99,12 +99,15 @@
 ## PP工具设计 https://confluence.sensetime.com/pages/viewpage.action?pageId=150339139
 ## 转向灯状态修复 for dm2.5
 ## 红绿灯刹车较重 https://jira.sensetime.com/browse/AUTODRIVE-4729
+## 对不确定性的处理 https://confluence.sensetime.com/pages/viewpage.action?pageId=147202229
+## 路口 cut in
 
 
-## 被较远的前车影响较大
-
-
-1. supper设置需要符合后面大于前面
-2. speed_emergency_flag(?)
-3. reset_s_upper意义是什么 (软约束)
-4. v r匀加速度？还是均jerk比较好呢？
+# PP场景分析(lane follow)
+## 低速车跟踪
+## 静止车占道
+## 高速车跟踪
+## 他车横穿
+## 他车逆行
+## 他车cut in
+## 自车merge
