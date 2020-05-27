@@ -100,7 +100,7 @@
 ## 转向灯状态修复 for dm2.5
 ## 红绿灯刹车较重 https://jira.sensetime.com/browse/AUTODRIVE-4729
 ## 对不确定性的处理 https://confluence.sensetime.com/pages/viewpage.action?pageId=147202229
-## 路口 cut in
+## 路口cut in 缓慢cut in
 
 
 # PP场景分析(lane follow)
