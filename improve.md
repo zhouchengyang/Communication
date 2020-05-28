@@ -5,8 +5,15 @@
     * (ls -l, -a, -h, -R),cd,grep(-c, -i, -v, ll | grep -i file)
     * find(path -name filename),cp(-r cp file1 file2),mv(mv file1 file2)
     * rm(-f -r file dir),cat(cat text | more),chmod(-R xyz file)
-    * vim(各种命令),gcc(-o, -std=c11)
+    * vim(各种命令),g++(test -o test.o)
 * 常用软件(tmux, docker, vim, git, wechat)
+    * tmux(session, window, panel)
+	* tmux session (tmux new -s name, tmux a -t name, :new<回车>, s切换会话, $重命名, d)
+	* tmux window (c新建, w切换, &关闭)
+	* tmux panel (%, ", x关闭, z最大化和最小化)
+    * docker 
+    * vim
+    * git
 ### C++相关知识
 * C++语法
 * 编译环境相关
