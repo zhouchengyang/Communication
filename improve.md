@@ -11,9 +11,8 @@
 	* tmux session (tmux new -s name, tmux a -t name, :new<回车>, s切换会话, $重命名, d)
 	* tmux window (c新建, w切换, &关闭)
 	* tmux panel (%, ", x关闭, z最大化和最小化)
-    * docker 
-    * vim
-    * git
+    * docker, vim, git
+    * vscode 插件，快捷键
 ### C++相关知识
 * C++语法
 * 编译环境相关
