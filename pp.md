@@ -92,7 +92,7 @@
   * InitalOptimalPLanner() 初始化优化器及参数
   * RunSpeedMpcPlanner()：对现在的定义进行求解
 
-# 任务完成
+# Q2任务完成
 ## 障碍物筛选 https://confluence.sensetime.com/pages/viewpage.action?pageId=142311902
 ## Cutin https://confluence.sensetime.com/pages/viewpage.action?pageId=150332478
 ## NBO绕行速度设计 https://confluence.sensetime.com/pages/viewpage.action?pageId=142318242
@@ -111,3 +111,45 @@
 ## 他车逆行
 ## 他车cut in(近距离cut in)
 ## 自车merge
+# PP思路整理
+## PP输入
+* road structure, reference line，current position
+* speed limit，stop distance，curveture limit
+* obstacle type, trajectory, speed, acceleration
+## PP各模块
+### 障碍物筛选
+* 删除横纵向远的障碍物
+* 删除不在长方形内的轨迹点
+* 删除车正后方的障碍物
+* 删除后方角度的障碍物
+### 障碍物类型
+* Yeild：跟车场景中的前车
+* Surpass：在ST图中超车
+* NBO：进行横向绕行的障碍物(位置，速度，行人)
+  * 他车加速阶段从绕行变成非绕行
+  * 逆向他车占据部分车道会急刹车
+  * 行人绕行到非绕行
+### ST图构建与DP
+* 将d left,d right, 0, s_range的障碍物投影
+* 搜索s-t，为障碍物打上yeild或者surpass标签
+  * DP连续性不够
+  * DP经常性求解失败
+### 纵向速度SQP
+* 输入s upper,s lower,leader s,v upper,v lower,a upper,a lower,v ref
+* 优化cost求出st, cost有以下几项组成：
+  * s-sref, v-vref，其中sref较为重要
+  * acc
+  * jerk
+* 划分场景来调节权重(红绿灯，跟高速的车，跟车，紧急场景)(减少场景来划分权重以获得较为一致的刹车体验)；细化sref的生成
+* 输出s t, v t,a t
+* 输出检查v,a,jerk是否满足约束，supper不用检查？
+* 出现问题求解失败之后
+  * 连续五帧以内失败或者无碰撞也用上帧
+  * 上述情况不满足后，放开s_upper约束以及其他约束
+  * 上述继续求解失败，进行最紧急刹车
+### 横向路径SQP及fall back
+## PP关键问题整理
+* 变道或者路口后方车辆问题的解决
+* 刹车或者加速速度曲线的问题
+* 高速侧方车辆侵入本车道问题
+* 近距离障碍物cut in
