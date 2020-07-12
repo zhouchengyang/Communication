@@ -55,6 +55,8 @@ git checkout <name> && git merge <name2> 将name2合并到name1分支
 git branch -b <name> 删除name分支
 git fetch origin
 git push origin <name>
+git push origin HEAD:refs/for/master%topic=A
+
 * commit规范
 ```
 AUTODRIVE-2428 repair speed too high bug
