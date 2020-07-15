@@ -73,38 +73,53 @@ repo sync -d -j4
 
 3. 编译仿真：
 * 在docker内部更新
-cd ~/ws/senseauto
-./system/scripts/binary_release/configure.sh
-./system/scripts/binary_release/check_version_and_update_package.sh
+  cd ~/ws/senseauto
+  ./system/scripts/binary_release/configure.sh
+  ./system/scripts/binary_release/check_version_and_update_package.sh
+
 * 在docker内部编译
-cd ~/ws/senseauto/build && cmake .. && make -j4
+  cd ~/ws/senseauto/build && cmake .. && make -j4
+
 * 开启仿真
-cd ~/ws/senseauto/ && ./system/launcher/simulator.sh -r -m 3
-打开localhost:8082
-运行自定义场景数据 ./system/launcher/simulator.sh  -s ~/data/Download/scenario.zip
-运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simulator_scenario/0
-运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simlator_scenario/simulator_scenario_log.bin -t 2020-03-xx-xx-xx-xx
-运行bag数据 ./system/launcher/simulator.sh -m 4 -k ~/data/Download/xxx.bag
-运行bag数据 ./system/launcher/offline_play_dmppcl.sh ~/data/data/case/
+  cd ~/ws/senseauto/ && ./system/launcher/simulator.sh -r -m 3
+  打开localhost:8082
+  运行自定义场景数据 ./system/launcher/simulator.sh  -s ~/data/Download/scenario.zip
+  运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simulator_scenario/0
+  运行下载文件后的场景数据 ./system/launcher/simulator.sh  -s ~/data/data/path/simlator_scenario/simulator_scenario_log.bin -t 2020-03-xx-xx-xx-xx
+  运行bag数据 ./system/launcher/simulator.sh -m 4 -k ~/data/Download/xxx.bag
+  运行bag数据 ./system/launcher/offline_play_dmppcl.sh ~/data/data/case/
+
 * 启动plotjuggler
-rosrun plotjuggler PlotJuggler
+  rosrun plotjuggler PlotJuggler
+
 * config文件:
-/system/config/pp_config.ini
+  /system/config/pp_config.ini
+
 * 输出日志文件:
-vim /tmp/ros_decision_planning_node.txt 
+  vim /tmp/ros_decision_planning_node.txt 
+
 * 画出dpqp过程
-python3 ~/ws/senseauto/modules/path_planning/scripts/plot_dqq_process.py -d /tmp/today-logs/ -t 2020-03-18-14-44-14
+  python3 ~/ws/senseauto/modules/path_planning/scripts/plot_dqq_process.py -d /tmp/today-logs/ -t 2020-03-18-14-44-14
+
 * 场景编辑器
-cd ~/ws/repo_pro/senseauto/modules/simulator/tools/scenario_editor/ && ./auto_start.sh
-打开locahost:8085
+  cd ~/ws/repo_pro/senseauto/modules/simulator/tools/scenario_editor/ && ./auto_start.sh
+  打开locahost:8085
+
 * 临时增加cut in or lead
+
 * hub挂掉可以尝试
-repo forall -c "git lfs pull"
-打开新的tmux窗口
-cd ~/ws/senseauto/modules/simulator/scripts/manual_control
-./control.py cutin
-./control.py lead
-修改参数：cutin.yaml
+  repo forall -c "git lfs pull"
+  打开新的tmux窗口
+  cd ~/ws/senseauto/modules/simulator/scripts/manual_control
+  ./control.py cutin
+  ./control.py lead
+  修改参数：cutin.yaml
+
+* 第三方库编译流程
+
+  本地编译：进入docker，找到mpc_lon_code_generator/code_generation.sh
+
+  远程编译：ssh nvidia@10.151.176.84 找到zhouchengyang，然后进入code_generation.sh
 
 4. tmux：
 * 启动与退出
