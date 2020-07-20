@@ -15,13 +15,38 @@
     * vscode 插件，快捷键
 ### C++相关知识
 * C++语法
+  * Effective C++
+  * C++ primer
+  * Acceleration C++
 * 编译环境相关
 * C++各种库
+  * STL库
+### Mac系统及技巧
+* 快捷键
+  * command + s, z, c, 
+  * command + q, w, tab
+
+  * command + m 最小化
+  * command + t 另开标签页
+  * command + space 搜索
+  * command + ，打开设置
+  * command + option + v 剪切粘过来
+  * command + a 全选
+  * command + backspace 删除
+  * Ctrl + ⬆️ + ⬅️ 管理多个桌面
+  * Ctrl + space 切换输入法
+  * F11 显示与退出桌面
+
 ### 自动驾驶相关
 * 自动驾驶公司、行业以及模式
 * 自动驾驶各个模块以及开发流程
 * DPC各个具体模块任务、难点及算法
 ## 能力
 ### 汇报演讲
+
+* 尽量提前准备好自己要讲的东西，可以多说几遍
+* 自己的对象是谁解决了什么问题
+
 ### 同事交流
+
 ### 人脉拓展
