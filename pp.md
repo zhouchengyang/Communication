@@ -92,7 +92,10 @@
   * InitalOptimalPLanner() 初始化优化器及参数
   * RunSpeedMpcPlanner()：对现在的定义进行求解
 
+
+
 # Q2任务完成
+
 ## 障碍物筛选 https://confluence.sensetime.com/pages/viewpage.action?pageId=142311902
 ## Cutin https://confluence.sensetime.com/pages/viewpage.action?pageId=150332478
 ## NBO绕行速度设计 https://confluence.sensetime.com/pages/viewpage.action?pageId=142318242
@@ -155,3 +158,6 @@
 * 近距离障碍物cut in
 
 ## Q3任务完成
+
+* Fallback优化
+* 

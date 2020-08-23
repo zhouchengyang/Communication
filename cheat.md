@@ -1,12 +1,14 @@
 # Cheat && Summary
 ## 配置环境
 1. 新手教程任务1：https://confluence.sensetime.com/pages/viewpage.action?pageId=101900275
+
 2. 二进制发布中的key
     aws configure --profile ad_system_common
     AWS Access Key ID [None]:O5B34FE51MMZRZGEY1Z5
     AWS Secret Access Key [None]:Xh6hOX5xnZ6BrsNnCcCt8NzNCbWeCSYwtABErKJ6
     Default region name [None]:
     Default output format [None]:
+    
 3. 创建docker容器
 CanlibSO=$(find /usr/lib/ -name 'libcanlib.so*' -exec echo "-v {}:{} " \;)
 DriverMajorVersion=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader | head -n 1 | cut -d '.' -f 1)
@@ -23,6 +25,8 @@ docker run -it  --privileged --runtime=nvidia --name senseauto \
     -v /usr/include/canstat.h:/usr/include/canstat.h \
     -v /usr/include/obsolete.h:/usr/include/obsolete.h \
     senseauto-dev:my-image /bin/bash
+   
+   
 
 ## 常用命令
 1. docker相关：
@@ -66,10 +70,15 @@ AUTODRIVE-2428 repair speed too high bug
 * Correctly handle throttle and brake.
 ```
 * 多个commit合并
-https://github.com/Jisuanke/tech-exp/issues/13
+  https://github.com/Jisuanke/tech-exp/issues/13
+
 * 下载topic
-repo download-topic AUTODRIVE-0000_Create_Branch_MyBranch
-repo sync -d -j4 
+  repo download-topic AUTODRIVE-`0000_Create_Branch_MyBranch`
+  repo sync -d -j4 
+
+* 下载二进制包
+
+  ./system/scripts/binary_release/download.py interaction -i prebuild/ --topic AUTODRIVE-5632_fix_bug_of_fallback
 
 3. 编译仿真：
 * 在docker内部更新
