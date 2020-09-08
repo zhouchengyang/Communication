@@ -31,8 +31,11 @@ docker run -it  --privileged --runtime=nvidia --name senseauto \
 ## 常用命令
 1. docker相关：
 * 启动docker
-docker start senseauto
-docker attach senseauto
+  docker start senseauto
+  docker attach senseauto
+
+  docker exec -it 9d2580c620cb bash
+
 * 退出docker
 ctrl+d
 

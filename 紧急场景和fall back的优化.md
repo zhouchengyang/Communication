@@ -22,7 +22,7 @@
 
 <img src="/Users/zhouchengyang/Library/Application Support/typora-user-images/image-20200731183818235.png" alt="image-20200731183818235" style="zoom:67%;" />2020_07_30_21_36_54
 
-
+![image-20200824111927671](/Users/zhouchengyang/Library/Application Support/typora-user-images/image-20200824111927671.png)
 
 需要再想想
 
@@ -59,4 +59,4 @@ fallback定义是求解失败后进行重新求解的过程，有几种思路来
 
 1. 在无解的情况下较少进入匀jerk，整体体验较好(发现两个bug)
 2. 前车急刹车时(前车速度误差大)
-3. 纵向安全性不够(1. 收到前车时间晚，减速力度小)
+3. 纵向安全性不够(1. 收到前车时间晚，减速力度小)   
