@@ -10,21 +10,10 @@
     Default output format [None]:
     
 3. 创建docker容器
-CanlibSO=$(find /usr/lib/ -name 'libcanlib.so*' -exec echo "-v {}:{} " \;)
-DriverMajorVersion=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader | head -n 1 | cut -d '.' -f 1)
-docker run -it  --privileged --runtime=nvidia --name senseauto \
-    -e NVIDIA_VISIBLE_DEVICES=all \
-    -e DISPLAY=$DISPLAY \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v /usr/lib/nvidia-${DriverMajorVersion}:/usr/lib/nvidia-${DriverMajorVersion} \
-    -v ${HOME}/docker_ws:/home/sensetime/ws \
-    -v ${SENSEAUTO_LOCAL_DIR}:${SENSEAUTO_LOCAL_DIR} \
-    ${CanlibSO} \
-    -v /usr/include/canlib.h:/usr/include/canlib.h \
-    -v /usr/doc/canlib:/usr/doc/canlib \
-    -v /usr/include/canstat.h:/usr/include/canstat.h \
-    -v /usr/include/obsolete.h:/usr/include/obsolete.h \
-    senseauto-dev:my-image /bin/bash
+
+1. 下载docker镜像docker pull balabala或者执行system/scripts/docker/pull_docker_image.bash
+2. 新建自己的docker bash system/scripts/docker/build_owner_docker.sh --source-image='core.harbor.domain/senseauto/developer:latest' --target-image=my_image:from_developer
+   3. 新建docker container ./system/scripts/docker/docker_run.sh -m ~/docker_ws/repo_pro/ -d ~ -i my_image:from_developer -l /usr/local/senseauto_local
    
    
 
@@ -35,6 +24,8 @@ docker run -it  --privileged --runtime=nvidia --name senseauto \
   docker attach senseauto
 
   docker exec -it 9d2580c620cb bash
+
+  docker 
 
 * 退出docker
 ctrl+d
