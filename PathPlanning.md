@@ -92,9 +92,15 @@
   * InitalOptimalPLanner() 初始化优化器及参数
   * RunSpeedMpcPlanner()：对现在的定义进行求解
 
+# DPDPQPQP-2020.09.15
 
+planner_factory.hpp,PlannerFactory
+
+* CreatePlanner(): 根据配置文件返回生成的Planner(目前是LongiLatPlanner),并且对Planner进行Init
 
 ## 
+
+
 
 
 # PP场景分析(lane follow)
