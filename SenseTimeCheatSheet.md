@@ -45,6 +45,10 @@ AUTODRIVE-2428 repair speed too high bug
 * 输出日志文件:
   vim /tmp/ros_decision_planning_node.txt 
 
+* 启动hmi的polygon显示
+
+  visualier.launch display_in_polygon = true
+
 * 场景编辑器
   cd ~/ws/repo_pro/senseauto/modules/simulator/tools/scenario_editor/ && ./auto_start.sh
   打开locahost:8085
