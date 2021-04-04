@@ -57,6 +57,7 @@ AUTODRIVE-2428 repair speed too high bug
 
   本地编译：进入docker，找到mpc_lon_code_generator/code_generation.sh
 
+  
   远程编译：ssh nvidia@10.151.176.84 找到zhouchengyang，然后进入code_generation.sh
   
 * 脱域：i have no name找it
@@ -84,3 +85,4 @@ AUTODRIVE-2428 repair speed too high bug
 
   aws 下载目录：aws s3 cp s3://Field_Test_Data/</path/to/DirName> ~/data/ --recursive
 
+* Rosbag 从某点开始 _start:=xxx xxx是1s为单位
